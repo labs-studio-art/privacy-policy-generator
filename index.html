@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Privacy Policy Generator for Play Store &amp; App Store</title>
+<meta name="description" content="Generate a professional, compliant privacy policy for your Android or iOS app in seconds. Free for developers.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Labs Studio">
+<meta property="og:title" content="Free Privacy Policy Generator for Play Store & App Store">
+<meta property="og:description" content="Generate a professional, compliant privacy policy for your Android or iOS app in seconds. Free for developers.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-deep: #0d1117;
+    --bg-surface: #161b22;
+    --bg-card: #1c2230;
+    --bg-input: #10141a;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --accent: #f0a500;
+    --accent-dim: rgba(240,165,0,0.12);
+    --accent-glow: rgba(240,165,0,0.25);
+    --text-primary: #e8eaf0;
+    --text-secondary: #8b92a4;
+    --text-muted: #4a5168;
+    --green: #3fb950;
+    --blue: #58a6ff;
+    --red: #f85149;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.25);
+    --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,17,23,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 1.5rem;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    gap: 1rem;
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 400;
+    transition: color var(--transition), background var(--transition);
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover { color: var(--text-primary); background: rgba(255,255,255,0.06); }
+  .nav-links a.active { color: var(--accent); background: var(--accent-dim); font-weight: 500; }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: transparent;
+  }
+
+  .nav-hamburger span {
+    width: 22px;
+    height: 2px;
+    background: var(--text-secondary);
+    border-radius: 2px;
+    transition: var(--transition);
+    display: block;
+  }
+
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1.5rem 1rem;
+    gap: 2px;
+  }
+
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    padding: 9px 12px;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color var(--transition), background var(--transition);
+  }
+  .nav-mobile a:hover { color: var(--text-primary); background: rgba(255,255,255,0.06); }
+  .nav-mobile a.active { color: var(--accent); background: var(--accent-dim); }
+
+  /* ── AD SPACE ── */
+  .ad-space {
+    width: 100%;
+    min-height: 90px;
+    background: #1a1f2e;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    text-align: center;
+    padding: 3.5rem 1.5rem 2rem;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(240,165,0,0.2);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 span { color: var(--accent); }
+
+  .hero p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  @media (max-width: 860px) {
+    .grid-layout { grid-template-columns: 1fr; }
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: 1.1rem 1.4rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    background: var(--accent-dim);
+    border: 1px solid rgba(240,165,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .card-icon svg { width: 16px; height: 16px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+  }
+
+  .card-body { padding: 1.4rem; }
+
+  /* ── FORM ── */
+  .form-group { margin-bottom: 1.1rem; }
+  .form-group:last-child { margin-bottom: 0; }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+
+  .input-wrap { position: relative; }
+
+  input[type="text"], input[type="email"] {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14.5px;
+    padding: 10px 14px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
+  }
+
+  input[type="text"]:focus, input[type="email"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+
+  input[type="text"]::placeholder, input[type="email"]::placeholder { color: var(--text-muted); }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .checkbox-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1.5px solid var(--border-hover);
+    border-radius: 4px;
+    background: var(--bg-card);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: var(--transition);
+    position: relative;
+  }
+
+  .checkbox-item input[type="checkbox"]:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .checkbox-item input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px; left: 4px;
+    width: 5px; height: 8px;
+    border: 2px solid #0d1117;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .checkbox-label {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    user-select: none;
+    line-height: 1.4;
+  }
+
+  .checkbox-label strong { color: var(--text-primary); font-weight: 500; display: block; font-size: 13.5px; }
+  .checkbox-label span { font-size: 12px; color: var(--text-muted); }
+
+  /* ── AD SPACE MIDDLE ── */
+  .ad-middle {
+    width: 100%;
+    min-height: 90px;
+    background: #1a1f2e;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'DM Mono', monospace;
+    margin: 1.5rem 0;
+  }
+
+  /* ── ACTION BUTTONS ── */
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all var(--transition);
+    text-decoration: none;
+  }
+
+  .btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0d1117;
+  }
+  .btn-primary:hover { background: #f5b420; transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); border-color: var(--border-hover); transform: translateY(-1px); }
+  .btn-secondary:active { transform: translateY(0); }
+
+  /* ── OUTPUT PANEL ── */
+  .output-panel { position: sticky; top: 76px; }
+
+  .output-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .char-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--bg-input);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  textarea#policy-output {
+    width: 100%;
+    min-height: 520px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: 'DM Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.75;
+    padding: 1.1rem;
+    resize: vertical;
+    outline: none;
+    margin-top: 1rem;
+    transition: border-color var(--transition);
+  }
+
+  textarea#policy-output:focus { border-color: var(--border-hover); }
+
+  .empty-state {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: var(--green);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 13.5px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 4px 20px rgba(63,185,80,0.35);
+  }
+
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast svg { width: 15px; height: 15px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-surface);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color var(--transition);
+  }
+  .footer-links a:hover { color: var(--text-secondary); }
+
+  .footer-copy { color: var(--text-muted); font-size: 12px; }
+
+  /* ── SECTION DIVIDER ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    padding-left: 2px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero { padding: 2.5rem 1rem 1.5rem; }
+    .main-wrapper { padding: 1.5rem 1rem 2rem; }
+    .output-panel { position: static; }
+    .actions { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  }
+
+  /* ── PLATFORM TAGS ── */
+  .platform-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .tag {
+    font-size: 11.5px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .tag-android { background: rgba(61,220,132,0.12); color: #3ddc84; border: 1px solid rgba(61,220,132,0.2); }
+  .tag-ios { background: rgba(88,166,255,0.12); color: #58a6ff; border: 1px solid rgba(88,166,255,0.2); }
+  .tag-free { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(240,165,0,0.2); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-dot"></span>
+      Labs Studio
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://labs-studio-art.github.io/easy-convert/" target="_blank" rel="noopener">Easy Convert</a></li>
+      <li><a href="https://labs-studio-art.github.io/mock-data-generator/" target="_blank" rel="noopener">Mock Data Generator</a></li>
+      <li><a href="#" class="active">Privacy Policy Generator</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="https://labs-studio-art.github.io/easy-convert/" target="_blank" rel="noopener">Easy Convert</a>
+  <a href="https://labs-studio-art.github.io/mock-data-generator/" target="_blank" rel="noopener">Mock Data Generator</a>
+  <a href="#" class="active">Privacy Policy Generator</a>
+</div>
+
+<!-- ADSTERRA BANNER TOPO -->
+<div class="ad-space">AD SPACE</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<div class="hero">
+  <div class="hero-badge"><span class="hero-badge-dot"></span> Free &amp; Instant</div>
+  <h1>Privacy Policy for<br><span>Play Store &amp; App Store</span></h1>
+  <p>Fill in your app details below and get a professional, legally structured privacy policy ready to publish — in seconds.</p>
+  <div class="platform-tags" style="justify-content:center; margin-top:1rem;">
+    <span class="tag tag-android">Android / Play Store</span>
+    <span class="tag tag-ios">iOS / App Store</span>
+    <span class="tag tag-free">100% Free</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MAIN ═══════════════════════ -->
+<div class="main-wrapper">
+  <div class="grid-layout">
+
+    <!-- ── LEFT: FORM ── -->
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <span class="card-title">App Information</span>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="app-name">App Name <span style="color:var(--red)">*</span></label>
+            <input type="text" id="app-name" placeholder="e.g. MyAwesome App" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="dev-name">Developer / Company Name <span style="color:var(--red)">*</span></label>
+            <input type="text" id="dev-name" placeholder="e.g. Labs Studio Ltd." autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Contact Email <span style="color:var(--red)">*</span></label>
+            <input type="email" id="contact-email" placeholder="e.g. privacy@myapp.com" autocomplete="off">
+          </div>
+
+          <div class="form-group" style="margin-top:1.4rem;">
+            <div class="section-label">Data Practices</div>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="checkbox" id="cb-ads">
+                <span class="checkbox-label">
+                  <strong>Use AdMob / Ads</strong>
+                  <span>App shows ads from Google AdMob or similar networks</span>
+                </span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" id="cb-location">
+                <span class="checkbox-label">
+                  <strong>Collect User Location</strong>
+                  <span>App accesses GPS or network-based location data</span>
+                </span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" id="cb-firebase">
+                <span class="checkbox-label">
+                  <strong>Use Firebase / Analytics</strong>
+                  <span>App uses Firebase Analytics, Crashlytics, or similar</span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADSTERRA BANNER MEIO -->
+      <div class="ad-middle">AD SPACE</div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="btn-copy">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy to Clipboard
+        </button>
+        <button class="btn btn-secondary" id="btn-download">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download as HTML
+        </button>
+      </div>
+    </div>
+
+    <!-- ── RIGHT: OUTPUT ── -->
+    <div class="output-panel">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="output-header-bar" style="flex:1">
+            <span class="card-title">Generated Policy</span>
+            <span class="char-count" id="char-count">0 characters</span>
+          </div>
+        </div>
+        <div class="card-body" style="padding-top:0.5rem;">
+          <textarea id="policy-output" class="empty-state" readonly placeholder="Start filling in the form on the left — your privacy policy will appear here in real time..."></textarea>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<!-- ADSTERRA BANNER RODAPÉ -->
+<div class="ad-space">AD SPACE</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">Labs Studio</a>
+    <ul class="footer-links">
+      <li><a href="https://labs-studio-art.github.io/easy-convert/" target="_blank" rel="noopener">Easy Convert</a></li>
+      <li><a href="https://labs-studio-art.github.io/mock-data-generator/" target="_blank" rel="noopener">Mock Data Generator</a></li>
+      <li><a href="#">Privacy Policy Generator</a></li>
+    </ul>
+    <span class="footer-copy">&copy; <span id="year"></span> Labs Studio. Free developer tools.</span>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  Copied to clipboard!
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── DOM refs ──
+  const appName    = document.getElementById('app-name');
+  const devName    = document.getElementById('dev-name');
+  const email      = document.getElementById('contact-email');
+  const cbAds      = document.getElementById('cb-ads');
+  const cbLocation = document.getElementById('cb-location');
+  const cbFirebase = document.getElementById('cb-firebase');
+  const output     = document.getElementById('policy-output');
+  const charCount  = document.getElementById('char-count');
+  const btnCopy    = document.getElementById('btn-copy');
+  const btnDl      = document.getElementById('btn-download');
+  const toast      = document.getElementById('toast');
+  const navToggle  = document.getElementById('nav-toggle');
+  const navMobile  = document.getElementById('nav-mobile');
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ── Mobile nav toggle ──
+  navToggle.addEventListener('click', function () {
+    navMobile.classList.toggle('open');
+  });
+
+  // ── Generate policy ──
+  function generatePolicy() {
+    const app  = appName.value.trim()  || '[App Name]';
+    const dev  = devName.value.trim()  || '[Developer/Company Name]';
+    const mail = email.value.trim()    || '[contact@email.com]';
+    const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    const useAds      = cbAds.checked;
+    const useLoc      = cbLocation.checked;
+    const useFirebase = cbFirebase.checked;
+
+    let text = '';
+
+    text += 'PRIVACY POLICY\n';
+    text += '═══════════════════════════════════════════\n\n';
+    text += 'Application: ' + app + '\n';
+    text += 'Developer:   ' + dev + '\n';
+    text += 'Last Updated: ' + date + '\n\n';
+    text += '───────────────────────────────────────────\n\n';
+
+    text += '1. INTRODUCTION\n\n';
+    text += dev + ' ("we", "us", or "our") built ' + app + ' as a mobile application. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our application. Please read this policy carefully. If you do not agree with the terms of this policy, please do not access the application.\n\n';
+    text += 'This Privacy Policy applies to Android and iOS users who download ' + app + ' from the Google Play Store and the Apple App Store.\n\n';
+
+    text += '2. INFORMATION WE COLLECT\n\n';
+    text += 'We may collect information about you in a variety of ways. The information we may collect via the application depends on the content and materials you use, and includes:\n\n';
+    text += '2.1 AUTOMATICALLY COLLECTED INFORMATION\n';
+    text += 'When you use our application, we may automatically collect certain device information, such as:\n';
+    text += '  • Device type, operating system version, and unique device identifiers;\n';
+    text += '  • Log data including access times, pages or screens viewed, and app crashes;\n';
+    text += '  • Mobile network and internet connection information;\n';
+    text += '  • App usage patterns and interactions.\n\n';
+
+    if (useLoc) {
+      text += '2.2 LOCATION INFORMATION\n';
+      text += 'With your permission, we may collect and process real-time location information from your device. We access location data (precise or approximate) to provide location-based features within ' + app + '. You may disable location access at any time through your device\'s system settings. Denying location permission may limit some app functionality.\n\n';
+    }
+
+    if (useAds) {
+      text += (useLoc ? '2.3' : '2.2') + ' ADVERTISING DATA\n';
+      text += app + ' uses Google AdMob and other advertising networks to display advertisements. These services may collect and use data about you to serve ads that are more relevant to you. AdMob may use your advertising identifier (IDFA on iOS, GAID on Android), IP address, and general location to personalize ads. We do not control the data practices of our advertising partners. You can opt out of personalized advertising at any time through your device settings (iOS: Settings > Privacy > Advertising; Android: Settings > Google > Ads).\n\n';
+      text += 'For more information on how Google uses your data, please visit: https://policies.google.com/privacy\n\n';
+    }
+
+    if (useFirebase) {
+      const n = (useLoc ? 1 : 0) + (useAds ? 1 : 0) + 2;
+      text += '2.' + n + ' ANALYTICS AND CRASH REPORTING\n';
+      text += app + ' uses Firebase Analytics and Firebase Crashlytics (provided by Google LLC) to collect anonymous usage statistics and crash reports. This data helps us improve the stability, performance, and user experience of the app. Firebase may collect information such as session duration, screens visited, in-app actions, device model, and crash logs. All data collected by Firebase is anonymized and aggregated.\n\n';
+      text += 'For more information on Firebase data practices, please visit: https://firebase.google.com/support/privacy\n\n';
+    }
+
+    text += '3. HOW WE USE YOUR INFORMATION\n\n';
+    text += 'Having accurate information about you permits us to provide you with a smooth, efficient, and customised experience. Specifically, we may use information collected about you to:\n\n';
+    text += '  • Operate, maintain, and improve the application;\n';
+    text += '  • Monitor and analyse usage and trends to improve your experience;\n';
+    text += '  • Diagnose technical problems and respond to user support requests;\n';
+    if (useAds) {
+      text += '  • Deliver targeted advertisements and measure advertising effectiveness;\n';
+    }
+    if (useLoc) {
+      text += '  • Provide location-aware features and services;\n';
+    }
+    if (useFirebase) {
+      text += '  • Identify crash reports and fix bugs through Firebase Crashlytics;\n';
+    }
+    text += '  • Comply with legal obligations and enforce our Terms of Service.\n\n';
+
+    text += '4. DISCLOSURE OF YOUR INFORMATION\n\n';
+    text += 'We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:\n\n';
+    text += '4.1 SERVICE PROVIDERS\nWe may share your information with third-party vendors and service providers that perform services on our behalf, such as hosting, data analysis, and technical support. These parties are contractually bound to handle your information securely and only for the purposes we specify.\n\n';
+    if (useAds) {
+      text += '4.2 ADVERTISING PARTNERS\nWe share limited information with advertising networks, including Google AdMob, to display relevant ads within the app. Please refer to Section 2 for more details on what data is collected by these partners.\n\n';
+    }
+    text += '4.' + (useAds ? '3' : '2') + ' LEGAL REQUIREMENTS\nWe may disclose your information where required to do so by law, or if we believe that such action is necessary to comply with legal obligations, to protect and defend our rights or property, or to protect the safety of users of the application or the public.\n\n';
+
+    text += '5. DATA RETENTION\n\n';
+    text += 'We retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. When we no longer need personal data, we will securely delete or anonymise it.\n\n';
+
+    text += '6. SECURITY OF YOUR INFORMATION\n\n';
+    text += 'We implement appropriate technical and organisational measures to protect your personal information from unauthorised access, disclosure, alteration, or destruction. However, please be aware that no security measures are perfect or impenetrable, and we cannot guarantee absolute security of your data.\n\n';
+
+    text += '7. CHILDREN\'S PRIVACY\n\n';
+    text += app + ' is not directed to children under the age of 13 (or 16 in the European Union). We do not knowingly collect personal information from children under these ages. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at ' + mail + ' and we will take steps to remove such information.\n\n';
+
+    text += '8. YOUR DATA RIGHTS\n\n';
+    text += 'Depending on your jurisdiction, you may have the following rights regarding your personal data:\n\n';
+    text += '  • Right to access — request a copy of the personal data we hold about you;\n';
+    text += '  • Right to rectification — request correction of inaccurate or incomplete data;\n';
+    text += '  • Right to erasure — request deletion of your personal data;\n';
+    text += '  • Right to restriction — request that we limit the processing of your data;\n';
+    text += '  • Right to portability — receive your data in a structured, machine-readable format;\n';
+    text += '  • Right to object — object to our processing of your data in certain circumstances.\n\n';
+    text += 'To exercise any of these rights, please contact us at ' + mail + '.\n\n';
+
+    text += '9. THIRD-PARTY LINKS AND SERVICES\n\n';
+    text += 'Our application may contain links to third-party websites or services. We are not responsible for the privacy practices or content of those third parties. We encourage you to review the privacy policies of any third-party services you access through our application.\n\n';
+
+    text += '10. CHANGES TO THIS PRIVACY POLICY\n\n';
+    text += 'We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. We will notify you of any material changes by updating the "Last Updated" date at the top of this policy. Your continued use of ' + app + ' after such changes constitutes your acceptance of the revised policy.\n\n';
+
+    text += '11. CONTACT US\n\n';
+    text += 'If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:\n\n';
+    text += '  Developer/Company: ' + dev + '\n';
+    text += '  Application:       ' + app + '\n';
+    text += '  Email:             ' + mail + '\n\n';
+    text += '───────────────────────────────────────────\n';
+    text += 'This Privacy Policy was generated using the Labs Studio Free Privacy Policy Generator.\n';
+    text += 'You should review this document with a qualified legal professional before publishing.\n';
+    text += '───────────────────────────────────────────\n';
+
+    return text;
+  }
+
+  function updateOutput() {
+    const hasAnyInput = appName.value || devName.value || email.value;
+    if (!hasAnyInput) {
+      output.value = '';
+      output.classList.add('empty-state');
+      charCount.textContent = '0 characters';
+      return;
+    }
+    output.classList.remove('empty-state');
+    const text = generatePolicy();
+    output.value = text;
+    const len = text.length;
+    charCount.textContent = len.toLocaleString() + ' characters';
+  }
+
+  // ── Live listeners ──
+  [appName, devName, email, cbAds, cbLocation, cbFirebase].forEach(function (el) {
+    el.addEventListener('input', updateOutput);
+    el.addEventListener('change', updateOutput);
+  });
+
+  // ── Copy to clipboard ──
+  btnCopy.addEventListener('click', function () {
+    const text = output.value;
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(function () {
+      showToast();
+    }).catch(function () {
+      output.select();
+      document.execCommand('copy');
+      showToast();
+    });
+  });
+
+  function showToast() {
+    toast.classList.add('show');
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(function () {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+  // ── Download as HTML ──
+  btnDl.addEventListener('click', function () {
+    const text = output.value;
+    if (!text) { alert('Please fill in the form first.'); return; }
+    const app  = appName.value.trim() || 'App';
+    const slug = app.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+
+    const htmlContent = '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>Privacy Policy — ' + app + '</title>\n<style>\nbody{font-family:\'Segoe UI\',Arial,sans-serif;background:#f9f9f9;color:#1a1a2e;margin:0;padding:0;}\n.container{max-width:780px;margin:3rem auto;background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:3rem 3.5rem;box-shadow:0 2px 16px rgba(0,0,0,0.06);}\nh1{font-size:1.6rem;font-weight:700;border-bottom:2px solid #f0a500;padding-bottom:0.75rem;margin-bottom:1.5rem;color:#0d1117;}\npre{white-space:pre-wrap;word-break:break-word;font-family:\'Segoe UI\',Arial,sans-serif;font-size:0.92rem;line-height:1.8;color:#222;}\n.footer{margin-top:2rem;font-size:0.8rem;color:#999;border-top:1px solid #eee;padding-top:1rem;text-align:center;}\n</style>\n</head>\n<body>\n<div class="container">\n<h1>Privacy Policy</h1>\n<pre>' + text.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</pre>\n<div class="footer">Generated by Labs Studio Free Privacy Policy Generator</div>\n</div>\n</body>\n</html>';
+
+    const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = slug + '-privacy.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+}());
+</script>
+</body>
+</html>
