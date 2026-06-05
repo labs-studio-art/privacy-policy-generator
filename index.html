@@ -167,12 +167,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-muted);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-family: 'DM Mono', monospace;
+    padding: 1rem;
   }
 
   /* ── HERO ── */
@@ -381,12 +376,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-muted);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-family: 'DM Mono', monospace;
+    padding: 1rem;
     margin: 1.5rem 0;
   }
 
@@ -498,6 +488,7 @@
   }
 
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast svg { width: 15px; height: 15px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 
   /* ── FOOTER ── */
   footer {
@@ -610,18 +601,18 @@
   <a href="#" class="active">Privacy Policy Generator</a>
 </div>
 
-<!-- ADSTERRA BANNER TOPO -->
+<!-- ═══════════════════════ AD TOPO ═══════════════════════ -->
 <div class="ad-space">
-<script>
-  atOptions = {
-    'key' : '5b036d7d17184be656426ac33e533296',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/5b036d7d17184be656426ac33e533296/invoke.js"></script>
+  <script>
+    atOptions = {
+      'key' : '5b036d7d17184be656426ac33e533296',
+      'format' : 'iframe',
+      'height' : 250,
+      'width' : 300,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highperformanceformat.com/5b036d7d17184be656426ac33e533296/invoke.js"></script>
 </div>
 
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
@@ -692,18 +683,18 @@
         </div>
       </div>
 
-      <!-- ADSTERRA BANNER MEIO -->
+      <!-- ═══════════════════════ AD MEIO ═══════════════════════ -->
       <div class="ad-middle">
-<script>
-  atOptions = {
-    'key' : '5b036d7d17184be656426ac33e533296',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/5b036d7d17184be656426ac33e533296/invoke.js"></script>
+        <script>
+          atOptions = {
+            'key' : '5b036d7d17184be656426ac33e533296',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/5b036d7d17184be656426ac33e533296/invoke.js"></script>
       </div>
 
       <div class="actions">
@@ -739,21 +730,21 @@
   </div>
 </div>
 
-<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-<!-- ADSTERRA BANNER RODAPÉ -->
+<!-- ═══════════════════════ AD RODAPÉ ═══════════════════════ -->
 <div class="ad-space">
-<script>
-  atOptions = {
-    'key' : '5b036d7d17184be656426ac33e533296',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/5b036d7d17184be656426ac33e533296/invoke.js"></script>
+  <script>
+    atOptions = {
+      'key' : '5b036d7d17184be656426ac33e533296',
+      'format' : 'iframe',
+      'height' : 250,
+      'width' : 300,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highperformanceformat.com/5b036d7d17184be656426ac33e533296/invoke.js"></script>
 </div>
 
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer>
   <div class="footer-inner">
     <a href="#" class="footer-logo">Labs Studio</a>
@@ -849,7 +840,7 @@
     }
 
     text += '3. HOW WE USE YOUR INFORMATION\n\n';
-    text += 'Having accurate information about you permits us to provide you with a smooth, efficient, and customised experience. Specifically, we may use information collected about you via the application to:\n';
+    text += 'Having accurate information about you permits us to provide you with a smooth, efficient, and customised experience. Specifically, we may use information collected about you to:\n\n';
     text += '  • Operate, maintain, and improve the application;\n';
     text += '  • Monitor and analyse usage and trends to improve your experience;\n';
     text += '  • Diagnose technical problems and respond to user support requests;\n';
